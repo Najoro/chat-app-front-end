@@ -1,6 +1,7 @@
 import logo from '../../assets/logo_index.png'
 import { FaApple, FaFacebookF, FaGoogle } from 'react-icons/fa'
-
+import { paths } from '../../routes/paths'
+import { ButtonFullWidth } from '../../components/ui/Buttons'
 const socialButtons = [
   { icon: FaFacebookF, label: 'Continuer avec Facebook' },
   { icon: FaGoogle, label: 'Continuer avec Google' },
@@ -48,16 +49,17 @@ function IndexPage() {
           <span className="h-px flex-1 bg-white/20" />
         </div>
 
-        <button
-          type="button"
-          className="w-full rounded-2xl bg-white px-6 py-4 text-lg font-semibold text-slate-900"
-        >
-          Sign up withn mail
-        </button>
+        <ButtonFullWidth
+          path={paths.auth.register}
+          label="Sign up with mail"
+          classes="bg-white text-slate-950 shadow-lg shadow-black/20 hover:bg-white/90"
+        />
+        <ButtonFullWidth
+          path={paths.auth.login}
+          label="Login"
+          classes="border border-white/35 bg-transparent text-white hover:bg-white/10"
+        />
 
-        <p className="pt-10 text-center text-base text-white/70">
-          Existing account? <span className="font-semibold text-white">Log in</span>
-        </p>
       </div>
     </section>
   )

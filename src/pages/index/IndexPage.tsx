@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import logo from '../../assets/logo_index.png'
+import {paths} from '../../routes/paths'
 
 export default function IndexPage() {
   const navigate = useNavigate()
@@ -10,7 +11,7 @@ export default function IndexPage() {
     setIsVisible(true)
 
     const timeout = window.setTimeout(() => {
-      navigate('/auth/index')
+      navigate(paths.auth.index)
     }, 5000)
 
     return () => window.clearTimeout(timeout)
