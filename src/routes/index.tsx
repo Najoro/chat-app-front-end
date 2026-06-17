@@ -1,7 +1,8 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom'
+import { createBrowserRouter } from 'react-router-dom'
 import RegisterPage from '../pages/auth/RegisterPage'
 import { AuthLayout } from '../layouts/AuthLayout'
 import IndexPage from '../pages/index/IndexPage'
+import AuthIndexPage from '../pages/auth/IndexPage'
 import LoginPage from '../pages/auth/LoginPage'
 import { IndexLayout } from '../layouts/IndexLayout'
 
@@ -22,8 +23,8 @@ export const router = createBrowserRouter([
     element: <AuthLayout />,
     children: [
       {
-        index: true,
-        element: <Navigate to="/auth/register" replace />,
+       path: 'index',
+        element: <AuthIndexPage />,
       },
       {
         path: 'register',
