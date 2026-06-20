@@ -20,10 +20,10 @@ const loginFields = [
 const LoginPage = () => {
   return (
     <>
-      <h1 className="mt-3 text-4xl font-light leading-tight tracking-tight lg:mt-0 lg:text-[3.2rem] lg:leading-[1]">
+      <h1 className="mt-3 text-3xl font-light leading-tight tracking-tight lg:mt-0 lg:text-[2.75rem] lg:leading-[1.05]">
         Login to Chatbox
       </h1>
-      <p className="mt-3 max-w-md text-base leading-7 text-white/70">
+      <p className="mt-3 max-w-md text-sm leading-7 text-white/70 lg:text-base">
         Enter your account details and continue your messaging experience.
       </p>
 

@@ -20,7 +20,7 @@ export default function IndexPage() {
   return (
     <section className="flex min-h-screen items-center justify-center bg-white text-center">
       <div
-        className={`flex flex-col items-center gap-2 transition-all duration-[3000ms] ${
+        className={`flex flex-col items-center gap-2 transition-all duration-3000 ${
           isVisible ? 'scale-100 opacity-100' : 'scale-75 opacity-0'
         }`}
       >

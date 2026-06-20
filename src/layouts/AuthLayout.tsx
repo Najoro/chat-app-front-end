@@ -37,14 +37,14 @@ export function AuthLayout() {
   }
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[radial-gradient(circle_at_top,_rgba(75,32,122,0.45),_transparent_42%),linear-gradient(180deg,_#231336_0%,_#171717_58%,_#1d1d1d_100%)] px-6 py-6 text-white lg:h-screen lg:overflow-hidden lg:px-4 lg:py-6 xl:px-6">
-      <div className="mx-auto flex min-h-[calc(100vh-3rem)] w-full max-w-[1480px] flex-col lg:h-full lg:min-h-0 lg:grid lg:grid-cols-[1.08fr_0.92fr] lg:grid-rows-[auto_1fr_auto] lg:gap-x-6 lg:gap-y-4 xl:gap-x-8">
+    <main className="min-h-screen overflow-x-hidden bg-[radial-gradient(circle_at_top,rgba(75,32,122,0.45),transparent_42%),linear-gradient(180deg,#231336_0%,#171717_58%,#1d1d1d_100%)] px-6 py-6 text-white lg:h-screen lg:overflow-hidden lg:px-8 lg:py-6 xl:px-10">
+      <div className="mx-auto flex min-h-[calc(100vh-3rem)] w-full max-w-370 flex-col lg:h-full lg:min-h-0 lg:grid lg:grid-cols-[1.08fr_0.92fr] lg:grid-rows-[auto_1fr_auto] lg:gap-x-6 lg:gap-y-4 xl:gap-x-8">
         <div className="mb-8 flex items-center justify-center gap-2 lg:col-span-2 lg:mb-0 lg:justify-start lg:pl-2 xl:pl-0">
           <img src={logo} alt="Logo Chatbox" className="h-auto w-8 lg:w-10" />
           <span className="text-lg font-medium tracking-tight lg:text-2xl">Chatbox</span>
         </div>
 
-        <div className="hidden self-center lg:block lg:-translate-x-6 lg:pl-0 xl:-translate-x-10">
+        <div className="hidden self-center lg:block">
           {showBackButton ? (
             <button
               type="button"
@@ -59,10 +59,10 @@ export function AuthLayout() {
           <p className="text-sm uppercase tracking-[0.45em] text-white/45">
             {authLayout.introEyebrow}
           </p>
-          <h1 className="mt-5 max-w-lg text-5xl font-light leading-[0.98] tracking-tight xl:text-6xl">
+          <h1 className="mt-5 max-w-lg text-4xl font-light leading-[1.02] tracking-tight xl:text-5xl">
             {authLayout.introTitle}
           </h1>
-          <p className="mt-5 max-w-xl text-base leading-7 text-white/68 xl:text-lg">
+          <p className="mt-5 max-w-xl text-sm leading-7 text-white/68 xl:text-base">
             {authLayout.introDescription}
           </p>
 
@@ -72,8 +72,8 @@ export function AuthLayout() {
                 key={title}
                 className={`rounded-[1.75rem] border border-white/10 p-5 backdrop-blur-sm ${classes ?? 'bg-white/6'}`}
               >
-                <p className="text-3xl font-light">{title}</p>
-                <p className="mt-2 text-sm leading-6 text-white/60">{description}</p>
+                <p className="text-2xl font-light">{title}</p>
+                <p className="mt-2 text-xs leading-6 text-white/60 sm:text-sm">{description}</p>
               </div>
             ))}
           </div>

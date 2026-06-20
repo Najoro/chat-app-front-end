@@ -11,10 +11,10 @@ const socialButtons = [
 function IndexPage() {
   return (
     <>
-      <h1 className="mt-3 text-4xl font-light leading-tight tracking-tight lg:mt-0 lg:text-[3.2rem] lg:leading-[1]">
+      <h1 className="mt-3 text-3xl font-light leading-tight tracking-tight lg:mt-0 lg:text-[2.75rem] lg:leading-[1.05]">
         Enter Chatbox your way
       </h1>
-      <p className="mt-3 max-w-md text-base leading-7 text-white/70">
+      <p className="mt-3 max-w-md text-sm leading-7 text-white/70 lg:text-base">
         Continue with a social account or use your email to create an account and
         start chatting in seconds.
       </p>
