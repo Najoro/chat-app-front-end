@@ -79,7 +79,7 @@ export function AuthLayout() {
           </div>
         </div>
 
-        <div className="w-full self-center rounded-[2rem] border border-white/10 bg-white/8 p-6 shadow-2xl shadow-black/20 backdrop-blur-sm sm:p-8 lg:justify-self-stretch lg:w-full lg:max-w-none lg:rounded-[2.25rem] lg:p-7 xl:mr-4 xl:p-8">
+        <div className="w-full self-center rounded-4xl border border-white/10 bg-white/8 p-6 shadow-2xl shadow-black/20 backdrop-blur-sm sm:p-8 lg:justify-self-stretch lg:w-full lg:max-w-none lg:rounded-[2.25rem] lg:p-7 xl:mr-4 xl:p-8">
           {showBackButton ? (
             <button
               type="button"
