@@ -1,12 +1,11 @@
-import { ButtonFullWidth } from '../../components/ui/Buttons'
-import { paths } from '../../routes/paths'
+import { useAuthRegister } from '../../hooks/auth/useRegister'
 
 const registerFields = [
   {
-    id: 'username',
-    label: 'Username',
+    id: 'name',
+    label: 'Name',
     type: 'text',
-    placeholder: 'Choose your username',
+    placeholder: 'Enter your name',
     autoComplete: 'off',
   },
   {
@@ -26,6 +25,8 @@ const registerFields = [
 ]
 
 function RegisterPage() {
+  const { isLoading, error, handleSubmit } = useAuthRegister()
+
   return (
     <>
       <h1 className="mt-3 text-3xl font-light leading-tight tracking-tight lg:mt-0 lg:text-[2.75rem] lg:leading-[1.05]">
@@ -35,7 +36,11 @@ function RegisterPage() {
         Start with a simple profile and connect with your friends in just a few steps.
       </p>
 
-      <form autoComplete="off" className="mt-7 space-y-4 lg:mt-6 lg:space-y-3.5">
+      <form
+        autoComplete="off"
+        className="mt-7 space-y-4 lg:mt-6 lg:space-y-3.5"
+        onSubmit={handleSubmit}
+      >
         {registerFields.map(({ id, label, type, placeholder, autoComplete }) => (
           <label key={id} htmlFor={id} className="block">
             <span className="mb-2 block text-sm font-medium text-white/80">{label}</span>
@@ -51,12 +56,16 @@ function RegisterPage() {
           </label>
         ))}
 
+        {error ? <p className="text-sm text-red-300">{error}</p> : null}
+
         <div className="pt-2 lg:pt-1">
-          <ButtonFullWidth
-            path={paths.auth.login}
-            label="Create account"
-            classes="bg-white text-slate-950 shadow-lg shadow-black/25 hover:bg-white/90"
-          />
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="my-1 w-full cursor-pointer rounded-2xl bg-white px-6 py-4 text-lg font-semibold text-slate-950 shadow-lg shadow-black/25 transition hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-70"
+          >
+            {isLoading ? 'Creating account...' : 'Create account'}
+          </button>
         </div>
       </form>
     </>
