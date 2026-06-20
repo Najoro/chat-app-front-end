@@ -1,5 +1,4 @@
-import { ButtonFullWidth } from '../../components/ui/Buttons'
-import { paths } from '../../routes/paths'
+import { useLogin } from '../../hooks/auth/useLogin'
 
 const loginFields = [
   {
@@ -19,6 +18,8 @@ const loginFields = [
 ]
 
 const LoginPage = () => {
+  const { isLoading, error, handleSubmit } = useLogin()
+
   return (
     <>
       <h1 className="mt-3 text-3xl font-light leading-tight tracking-tight lg:mt-0 lg:text-[2.75rem] lg:leading-[1.05]">
@@ -28,7 +29,11 @@ const LoginPage = () => {
         Enter your account details and continue your messaging experience.
       </p>
 
-      <form autoComplete="off" className="mt-7 space-y-4 lg:mt-6 lg:space-y-3.5">
+      <form
+        autoComplete="off"
+        className="mt-7 space-y-4 lg:mt-6 lg:space-y-3.5"
+        onSubmit={handleSubmit}
+      >
         {loginFields.map(({ id, label, type, placeholder, autoComplete }) => (
           <label key={id} htmlFor={id} className="block">
             <span className="mb-2 block text-sm font-medium text-white/80">{label}</span>
@@ -44,12 +49,16 @@ const LoginPage = () => {
           </label>
         ))}
 
+        {error ? <p className="text-sm text-red-300">{error}</p> : null}
+
         <div className="pt-2 lg:pt-1">
-          <ButtonFullWidth
-            path={paths.chat.home}
-            label="Login"
-            classes="bg-white text-slate-950 shadow-lg shadow-black/25 hover:bg-white/90"
-          />
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="my-1 w-full cursor-pointer rounded-2xl bg-white px-6 py-4 text-lg font-semibold text-slate-950 shadow-lg shadow-black/25 transition hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-70"
+          >
+            {isLoading ? 'Logging in...' : 'Login'}
+          </button>
         </div>
       </form>
     </>
