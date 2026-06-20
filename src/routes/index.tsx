@@ -5,6 +5,7 @@ import IndexPage from '../pages/index/IndexPage'
 import AuthIndexPage from '../pages/auth/IndexPage'
 import LoginPage from '../pages/auth/LoginPage'
 import { IndexLayout } from '../layouts/IndexLayout'
+import HomePage from '../pages/chat/HomePage'
 
 const registerAuthLayout: AuthLayoutConfig = {
   introEyebrow: 'Create account',
@@ -102,6 +103,14 @@ export const router = createBrowserRouter([
         handle: {
           authLayout: loginAuthLayout,
         },
+      }
+    ]
+  },{
+    path: "chat",
+    children: [
+      {
+        path: "home",
+        element: <HomePage />
       }
     ]
   }

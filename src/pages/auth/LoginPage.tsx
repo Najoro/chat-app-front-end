@@ -1,4 +1,5 @@
 import { ButtonFullWidth } from '../../components/ui/Buttons'
+import { paths } from '../../routes/paths'
 
 const loginFields = [
   {
@@ -45,6 +46,7 @@ const LoginPage = () => {
 
         <div className="pt-2 lg:pt-1">
           <ButtonFullWidth
+            path={paths.chat.home}
             label="Login"
             classes="bg-white text-slate-950 shadow-lg shadow-black/25 hover:bg-white/90"
           />
