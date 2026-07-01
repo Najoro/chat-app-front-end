@@ -11,5 +11,6 @@ export const endpoint = {
   auth: {
     register: '/auth/register',
     login: '/auth/login',
+    verifyToken: '/auth/verify-token',
   },
 }

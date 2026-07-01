@@ -12,4 +12,14 @@ export class authService {
     const response = await api.post(endpoint.auth.login, payload)
     return response.data
   }
+
+  static async verifyToken(token: string) {
+    const response = await api.get(endpoint.auth.verifyToken, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+
+    return response.data
+  }
 }

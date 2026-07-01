@@ -1,21 +1,30 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import logo from '../../assets/logo_index.png'
-import {paths} from '../../routes/paths'
+import { useVerifyToken } from '../../hooks/auth/useVerifyToken'
+import { paths } from '../../routes/paths'
 
 export default function IndexPage() {
   const navigate = useNavigate()
   const [isVisible, setIsVisible] = useState(false)
+  const { verifyToken } = useVerifyToken()
 
   useEffect(() => {
     setIsVisible(true)
 
-    const timeout = window.setTimeout(() => {
+    const timeout = window.setTimeout(async () => {
+      const response = await verifyToken()
+
+      if (response) {
+        navigate(paths.chat.home)
+        return
+      }
+
       navigate(paths.auth.index)
     }, 5000)
 
     return () => window.clearTimeout(timeout)
-  }, [navigate])
+  }, [navigate, verifyToken])
 
   return (
     <section className="flex min-h-screen items-center justify-center bg-white text-center">
